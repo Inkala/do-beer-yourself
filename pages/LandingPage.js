@@ -10,7 +10,7 @@ LandingPage.prototype.generate = function () {
     <section class=landing-page>
       <h3>More hops, add fruit...</h3>
       <h2>Try it yourself!</h2>
-      <button>Check the recipes</button>
+      <button data-url="/recipes">Check the recipes</button>
     </section>
   `;
   this.render();
@@ -19,6 +19,3 @@ LandingPage.prototype.generate = function () {
 LandingPage.prototype.render = function() {
   this.parent.innerHTML = this.elements;
 }
-  
-
-

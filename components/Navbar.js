@@ -1,19 +1,21 @@
 'use strict';
 
-function Navbar(parent) {
+function Navbar(parent, links) {
   this.parent = parent;
   this.elements = null;
-  this.links = null;
+  this.links = links;
 }
 
 Navbar.prototype.generate = function() {
-  this.elements = `
-    <nav class="site-navbar">
-      <a href="#0">
-        <img src="./images/dby-logo.png" alt="Do Beer Yourself Logo">
+  this.elements = `<nav class="site-navbar"><ul>`;
+  this.links.forEach(link => {
+    this.elements += `<li>
+      <a href="#0" url=${link.url}>
+        <img src="./images/${link.img}.png" alt="${link.alt}">
       </a> 
-    </nav>
-  `;
+    </li>`;
+  });
+  this.elements += `</ul></nav>`;
   this.render();
 }
 
