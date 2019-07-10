@@ -32,17 +32,33 @@ p {
 }
 
 /* ---- layout ---- */
+#root {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
 
 #site-header {
-  padding: 30px 0;
   color: white;
   background: #111;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  padding: 20px 0 12px;
+}
+
+.site-navbar {
+  grid-column: 2;
+}
+
+.site-navbar img {
+  width: 150px;
+  cursor: pointer;
 }
 
 #site-footer {
   color: white;
   padding: 60px 0;
   background: #111;
+  grid-row-end: -1; 
 }
 
 #site-main {
