@@ -103,7 +103,7 @@ The site will fetch the recipes from an API and create a list with all of them a
 - Connect Files
 - Setup git & GitHub
 - Create Logo and icons
-- Create the connection to the API
+- Make connection to the API
 - Generate Layout
 - Create header element
 - Create footer element
@@ -113,6 +113,7 @@ The site will fetch the recipes from an API and create a list with all of them a
 - Create Recipe page DOM elements
 - Display information for recipe page
 - Create loading element
+- Enhance CSS for the landing page
 - Enhance CSS for the recipe list
 - Enhance CSS for the recipe page
 
