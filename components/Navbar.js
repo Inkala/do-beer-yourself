@@ -1,7 +1,7 @@
 'use strict';
 
-function Navbar(root) {
-  this.root = root;
+function Navbar(parent) {
+  this.parent = parent;
   this.elements = null;
   this.links = null;
 }
@@ -18,5 +18,5 @@ Navbar.prototype.generate = function() {
 }
 
 Navbar.prototype.render = function() {
-  this.root.innerHTML = this.elements;
+  this.parent.innerHTML = this.elements;
 }
