@@ -176,6 +176,16 @@ p {
   box-shadow: 0px 2px 10px black;
   margin: 15px;
   cursor: pointer;
+  text-align: left;
+  background-image: url(images/card-left.jpg);
+  padding-right: 30%;
+}
+
+.recipe-card:nth-child(even) {
+  text-align: right;
+  background-image: url(images/card-right.jpg);
+  padding-left: 30%;
+  padding-right: 25px;
 }
 
 .recipe-card h3 {
@@ -186,56 +196,39 @@ p {
   font-size: 1.5em;
 }
 
-.recipe-card.left {
-  text-align: left;
-  background-image: url(images/card-left.jpg);
-  padding-right: 30%;
-}
-
-.recipe-card.right {
-  text-align: right;
-  background-image: url(images/card-right.jpg);
-  padding-left: 30%;
-}
-
 /* ---- Recipe Page ---- */
+
+.recipe {
+  padding: 10px;
+}
 
 .recipe-header {
   background-size: cover;
   display: grid;
   place-content: center center;
   padding: 30px;
-  margin: 10px;
   text-align: center;
 }
 
 .recipe-header h2 {
   color: wheat;
   font-size: 2.5rem;
-  text-shadow:
--1px -1px 0 var(--dark-brown),
--1px 1px 0 var(--dark-brown),
-0px 2px 0 var(--dark-brown),
-1px -1px 0 var(--dark-brown),
-1px 3px 0 var(--dark-brown),
-2px 0px 0 var(--dark-brown),
-2px 3px 0 var(--dark-brown),
-3px 1px 0 var(--dark-brown),
-3px 2px 0 var(--dark-brown);
+  line-height: 1;
+  text-shadow: -1px -1px 0 var(--dark-brown), -1px 1px 0 var(--dark-brown),
+    0px 2px 0 var(--dark-brown), 1px -1px 0 var(--dark-brown),
+    1px 3px 0 var(--dark-brown), 2px 0px 0 var(--dark-brown),
+    2px 3px 0 var(--dark-brown), 3px 1px 0 var(--dark-brown),
+    3px 2px 0 var(--dark-brown);
 }
 
-.recipe-header h4 {
+.recipe-header h3 {
   font-size: 1.5rem;
-  margin-top: 20px;
+  margin-top: 15px;
   margin-bottom: 0;
   color: white;
-  text-shadow:
-    -1px -1px 0 var(--brown),
-    -1px 1px 0 var(--brown),
-    1px -1px 0 var(--brown),
-    1px 1px 0 var(--brown),
-    0 2px 0 var(--brown);
-    
+  font-family: inherit;
+  text-shadow: -1px -1px 0 var(--brown), -1px 1px 0 var(--brown),
+    1px -1px 0 var(--brown), 1px 1px 0 var(--brown), 0 2px 0 var(--brown);
 }
 
 .bg-image-1 {
@@ -260,6 +253,11 @@ p {
 
 .bg-image-6 {
   background-image: url(images/recipe-header6.jpg);
+}
+
+.recipe-content {
+  border: 1px dashed indianred;
+  margin-bottom: 50px;
 }
 
 @media (min-width: 768px) {

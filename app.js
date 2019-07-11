@@ -44,7 +44,9 @@ function main() {
   }
 
   function changePage(event) {
-    var url = event.target.parentNode.attributes.url.value;
+    var url =
+      event.target.parentNode.attributes.url.value ||
+      event.target.attributes.url.value;
     routerInstance.buildDom(url, layoutInstance.main);
   }
 }
