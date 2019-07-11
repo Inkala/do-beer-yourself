@@ -5,7 +5,7 @@ function LandingPage(parent) {
   this.elements = null;
 }
 
-LandingPage.prototype.generate = function () {
+LandingPage.prototype.generate = function() {
   this.elements = `
     <section class=landing-page>
       <h3>More hops, add fruit...</h3>
@@ -14,8 +14,17 @@ LandingPage.prototype.generate = function () {
     </section>
   `;
   this.render();
-}
+  this.addListenerToButton();
+};
+
+LandingPage.prototype.addListenerToButton = function() {
+  var recipesButton = document.querySelector('.landing-page button');
+  recipesButton.addEventListener('click', event => {
+    var url = event.target.dataset.url;
+    routerInstance.buildDom(url, this.parent);
+  });
+};
 
 LandingPage.prototype.render = function() {
   this.parent.innerHTML = this.elements;
-}
+};

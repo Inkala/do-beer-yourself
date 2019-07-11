@@ -16,7 +16,6 @@ function main() {
   generateFooter();
   activateRouter();
   addListenersToNav();
-  addListenerToButton();
 
   function generateLayout() {
     layoutInstance = new Layout(rootElement);
@@ -37,24 +36,17 @@ function main() {
     routerInstance.buildDom(ENTRY_POINT, layoutInstance.main);
   }
 
-  function addListenerToButton() {
-    var recipesButton = document.querySelector('.landing-page button');
-    recipesButton.addEventListener('click', changePage);
-  }
-
   function addListenersToNav() {
     var navLinks = document.querySelectorAll('.site-navbar a');
     navLinks.forEach(navLink => {
       navLink.addEventListener('click', changePage);
-    })
+    });
   }
 
-  function changePage() {
-    var url = event.target.dataset.url ||
-      event.target.parentNode.attributes.url.value;
+  function changePage(event) {
+    var url = event.target.parentNode.attributes.url.value;
     routerInstance.buildDom(url, layoutInstance.main);
   }
-
 }
 
 window.addEventListener('load', main);

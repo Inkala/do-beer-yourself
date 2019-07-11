@@ -12,7 +12,6 @@ RecipeList.prototype.generate = async function() {
   this.elements = `<section class=recipe-list>`;
   this.recipes.forEach((recipe, i) => {
     var className = i % 2 === 0 ? 'left' : 'right';
-    console.log(`${recipe.name} at ${i}`);
     this.elements += `
       <article class="recipe-card ${className}">
         <h3>${recipe.name}</h3>
