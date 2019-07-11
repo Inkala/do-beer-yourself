@@ -9,19 +9,19 @@ function RecipeList(parent) {
 RecipeList.prototype.generate = async function() {
   await this.connectToApi();
 
-  this.elements = `<section class=recipe-list>`;
+  this.elements = `<section class="recipe-list">`;
   this.recipes.forEach((recipe, i) => {
     var className = i % 2 === 0 ? 'left' : 'right';
     this.elements += `
-      <article class="recipe-card ${className}">
+      <article data-url=${recipe.id} class="recipe-card ${className}">
         <h3>${recipe.name}</h3>
         <p>${recipe.tagline}</p>
         </article>
-        `;
+      `;
   });
-  // <img src="${recipe.image_url}" alt="${recipe.name} picture">
   this.elements += `</section>`;
   this.render();
+  this.addListenersToCards();
 };
 
 RecipeList.prototype.render = function() {
@@ -30,4 +30,16 @@ RecipeList.prototype.render = function() {
 
 RecipeList.prototype.connectToApi = async function() {
   this.recipes = await beerServiceInstance.getBeerRecipes();
+};
+
+RecipeList.prototype.addListenersToCards = function() {
+  var recipeCards = document.querySelectorAll('.recipe-card');
+  recipeCards.forEach(card => {
+    card.addEventListener('click', () => this.openRecipe(event));
+  })
+};
+
+RecipeList.prototype.openRecipe = function(event) {
+  var url = event.target.dataset.url || event.target.parentNode.dataset.url;
+  routerInstance.buildDom(url, this.parent);
 };

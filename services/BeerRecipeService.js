@@ -10,6 +10,10 @@ BeerRecipeService.prototype.getBeerRecipes = async function() {
   return data;
 };
 
-var beerServiceInstance = new BeerRecipeService();
+BeerRecipeService.prototype.getOneBeer = async function(id) {
+  var res = await fetch(`${this.baseUrl}/beers/${id}`);
+  var data = await res.json();
+  return data;
+};
 
-beerServiceInstance.getBeerRecipes();
+var beerServiceInstance = new BeerRecipeService();

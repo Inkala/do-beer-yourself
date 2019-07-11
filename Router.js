@@ -11,7 +11,7 @@ Router.prototype.buildDom = function(url, parentElement) {
       this.generateRecipeList(parentElement);
       break;
     default:
-      this.generateLandingPage(parentElement);
+      this.generateRecipePage(url, parentElement);
   }
 };
 
@@ -22,6 +22,11 @@ Router.prototype.generateLandingPage = function(parentElement) {
 
 Router.prototype.generateRecipeList = function(parentElement) {
   this.page = new RecipeList(parentElement);
+  this.page.generate();
+};
+
+Router.prototype.generateRecipePage = function(url, parentElement) {
+  this.page = new RecipePage(url, parentElement);
   this.page.generate();
 };
 

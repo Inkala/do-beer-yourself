@@ -39,6 +39,7 @@ h1,
 h2,
 h3,
 button {
+  margin: 0;
   font-family: 'Roboto Slab', serif;
 }
 
@@ -47,6 +48,7 @@ p {
 }
 
 /* ---- layout ---- */
+
 #root {
   min-height: 100%;
   display: grid;
@@ -110,8 +112,7 @@ p {
   height: 30px;
 }
 
-#site-main {
-}
+/* ---- Landing Page ---- */
 
 .landing-page {
   background-image: url(images/beer-background2.jpg);
@@ -155,6 +156,8 @@ p {
   background-color: var(--dark-gold);
 }
 
+/* ---- Recipe List ---- */
+
 .recipe-list {
   margin-bottom: 65px;
 }
@@ -195,13 +198,68 @@ p {
   padding-left: 30%;
 }
 
-.container {
-  margin: 0 20px;
+/* ---- Recipe Page ---- */
+
+.recipe-header {
+  background-size: cover;
+  display: grid;
+  place-content: center center;
+  padding: 30px;
+  margin: 10px;
+  text-align: center;
 }
 
-.section {
-  margin-bottom: 20px;
-  padding-top: 20px;
+.recipe-header h2 {
+  color: wheat;
+  font-size: 2.5rem;
+  text-shadow:
+-1px -1px 0 var(--dark-brown),
+-1px 1px 0 var(--dark-brown),
+0px 2px 0 var(--dark-brown),
+1px -1px 0 var(--dark-brown),
+1px 3px 0 var(--dark-brown),
+2px 0px 0 var(--dark-brown),
+2px 3px 0 var(--dark-brown),
+3px 1px 0 var(--dark-brown),
+3px 2px 0 var(--dark-brown);
+}
+
+.recipe-header h4 {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  margin-bottom: 0;
+  color: white;
+  text-shadow:
+    -1px -1px 0 var(--brown),
+    -1px 1px 0 var(--brown),
+    1px -1px 0 var(--brown),
+    1px 1px 0 var(--brown),
+    0 2px 0 var(--brown);
+    
+}
+
+.bg-image-1 {
+  background-image: url(images/recipe-header1.jpg);
+}
+
+.bg-image-2 {
+  background-image: url(images/recipe-header2.jpg);
+}
+
+.bg-image-3 {
+  background-image: url(images/recipe-header3.jpg);
+}
+
+.bg-image-4 {
+  background-image: url(images/recipe-header4.jpg);
+}
+
+.bg-image-5 {
+  background-image: url(images/recipe-header5.jpg);
+}
+
+.bg-image-6 {
+  background-image: url(images/recipe-header6.jpg);
 }
 
 @media (min-width: 768px) {
