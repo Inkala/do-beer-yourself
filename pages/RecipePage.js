@@ -25,23 +25,26 @@ RecipePage.prototype.generate = async function() {
       <h3>${recipe.tagline}</h3>
     </header>
     <section class="recipe-content">
-      <span>Delicious since ${recipe.first_brewed}</span>
+      <h2>Delicious since <span>${recipe.first_brewed}</span></h2>
       <section class="description">
         <p>${recipe.description}</p>
       </section>
-      <section class="stats">
-        <h4>Stats:</h4>
-        <img src=${recipe.image_url} alt="Beer picture">
-        <ul>
-          <li>Volume: ${recipe.volume.value} ${recipe.volume.unit[0].toUpperCase()}</li>
-          <li>Boil Volume: ${recipe.boil_volume.value} ${recipe.boil_volume.unit[0].toUpperCase()}</li>
-          <li><a href="https://shorecraftbeer.com/abv-and-ibu-explained/" target="_blank">ABV</a>: ${recipe.abv}</li>
-          <li><a href="https://shorecraftbeer.com/abv-and-ibu-explained/" target="_blank">IBU</a>: ${recipe.ibu}</li>
-          <li><a href="http://www.thebrewlist.com/converter/beer-colour" target="_blank">SRM</a>: ${recipe.srm}</li>
-          <li><a href="http://www.thebrewlist.com/converter/beer-colour" target="_blank">EBC</a>: ${recipe.ebc}</li>
-        </ul>
+      <section class="recipe-section stats">
+        <h4>About this beer</h4>
+        <div>
+          <img src=${recipe.image_url} alt="Beer picture">
+          <ul>
+            <li><b>Volume:</b> ${recipe.volume.value} ${recipe.volume.unit[0].toUpperCase()}</li>
+            <li><b>Boil Volume:</b> ${recipe.boil_volume.value} ${recipe.boil_volume.unit[0].toUpperCase()}</li>
+            <li><a href="https://shorecraftbeer.com/abv-and-ibu-explained/" target="_blank">ABV</a>: ${recipe.abv}</li>
+            <li><a href="https://shorecraftbeer.com/abv-and-ibu-explained/" target="_blank">IBU</a>: ${recipe.ibu}</li>
+            <li><a href="http://www.thebrewlist.com/converter/beer-colour" target="_blank">SRM</a>: ${recipe.srm}</li>
+            <li><a href="http://www.thebrewlist.com/converter/beer-colour" target="_blank">EBC</a>: ${recipe.ebc}</li>
+          </ul>
+        </div>
       </section>
-      <section class="ingredients">
+      <hr>
+      <section class="recipe-section ingredients collapsed">
         <h4>Ingredients</h4>
         <p>Malts:</p>
         <ul>${this.ingredients.malt}</ul>
@@ -50,17 +53,20 @@ RecipePage.prototype.generate = async function() {
         <p>Yeast:</p>
         <ul>${this.ingredients.yeast}</ul>
       </section>
-      <section class="preparation">
+      <hr>
+      <section class="recipe-section preparation collapsed">
         <h4>Preparation</h4>
-        <p>Mash: ${this.method['mash_temp']}</p>
-        <p>Fermantation: ${this.method['fermentation']}</p>
-        <p>Twist: ${this.method['twist'] ? this.method['twist'] : "None"}
+        <p><b>Mash:</b> ${this.method['mash_temp']}</p>
+        <p><b>Fermantation:</b> ${this.method['fermentation']}</p>
+        <p><b>Twist:</b> ${this.method['twist'] ? this.method['twist'] : "None"}
       </section>
-      <section class="tips">
+      <hr>
+      <section class="recipe-section tips collapsed">
         <h4>Brewer Tips</h4>
         <p>${recipe.brewers_tips}</p>
       </section>
-      <section class="food">
+      <hr>
+      <section class="recipe-section food collapsed">
         <h4>Food Paring</h4>
         <ul>${this.food}</ul>
       </section>
@@ -68,6 +74,7 @@ RecipePage.prototype.generate = async function() {
 
   `;
   this.render();
+  this.addCollapseClass();
 };
 
 RecipePage.prototype.createIngredientsSection = function(ingredients) {
@@ -109,6 +116,15 @@ RecipePage.prototype.createFoodSection = function(foodParing) {
     this.food += `<li>${food}</li>`;
   })
 };
+
+RecipePage.prototype.addCollapseClass = function() {
+  var sectionList = document.querySelectorAll('.recipe-section h4');
+  sectionList.forEach(section => {
+    section.addEventListener('click', (event) => {
+      event.target.parentNode.classList.toggle('collapsed');
+    })
+  })
+}
 
 RecipePage.prototype.connectToApi = async function() {
   this.recipe = await beerServiceInstance.getOneBeer(this.id);
