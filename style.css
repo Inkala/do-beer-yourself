@@ -78,6 +78,7 @@ hr {
   padding: 20px 20px 12px;
   position: fixed;
   width: 100%;
+  z-index: 10;
 }
 
 .site-navbar ul {
@@ -106,12 +107,23 @@ hr {
 
 .site-navbar img:hover {
   opacity: 0.65;
+  
 }
 
 .site-navbar li:first-child img {
   width: 25px;
 }
+
 /* ---- Footer ---- */
+  
+@keyframes footerAnimation {
+    0% {
+      transform: rotate(10deg);
+    }
+    50% {
+      transform: rotate(-10deg);
+    }
+  }
 
 .half {
   background: url(images/half.svg);
@@ -145,6 +157,7 @@ hr {
 
 .footer-element img:hover {
   opacity: 1;
+  animation: footerAnimation 0.15s linear infinite alternate;
 }
 
 #site-footer {
@@ -197,11 +210,22 @@ hr {
   margin: 15px 0;
   font-weight: bold;
 }
+
 .landing-page h2 {
   font-size: 3em;
   line-height: 1;
   color: var(--light-gold);
   text-shadow: 0px 3px var(--dark-brown);
+}
+
+.landing-page h2:hover {
+  text-shadow: 0px 7px 7px black;
+  transition: all .15s ease-in;
+}
+
+.landing-page h3:hover {
+  text-shadow: 0px 5px 5px black;
+  transition: all .15s ease-in;
 }
 
 .landing-page button {
@@ -214,12 +238,14 @@ hr {
   padding: 15px 25px;
   border-radius: 8px;
   box-shadow: 2px 4px var(--dark-brown);
+  transition: all .2s ease-in;
 }
 
 .landing-page button:hover {
   background-color: var(--dark-gold);
-  transform: scale(1.05 ,1.05);
-  transition: all .15s ease-in;
+  transform: scale(1.2 ,1.2) rotate(-7deg);
+  box-shadow: 4px 6px #392300;
+  transition: all .1s ease-in;
 }
 
 /* ---- Recipe List ---- */
@@ -498,7 +524,7 @@ button {
   color: var(--dark-gold);
   font-size: 11px;
   text-indent: -99999em;
-  margin: 55px auto;
+  margin: 125px auto;
   position: relative;
   width: 10em;
   height: 10em;
