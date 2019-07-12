@@ -111,6 +111,41 @@ hr {
 .site-navbar li:first-child img {
   width: 25px;
 }
+/* ---- Footer ---- */
+
+.half {
+  background: url(images/half.svg);
+}
+
+.bottle {
+  background: url(images/bottle.svg);
+}
+
+.pint {
+  background: url(images/pint.svg);
+}
+
+.glass {
+  background: url(images/glass.svg);
+}
+
+.footer-element {
+  height: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.footer-element:hover {
+  background: none;
+}
+
+.footer-element img {
+  opacity: 0;
+}
+
+.footer-element img:hover {
+  opacity: 1;
+}
 
 #site-footer {
   position: fixed;

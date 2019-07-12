@@ -7,10 +7,18 @@ function Footer(parent) {
 
 Footer.prototype.generate = function() {
   this.elements = `
-    <img src="./images/half.png" alt="">
-    <img src="./images/bottle.png" alt="">
-    <img src="./images/pint.png" alt="">
-    <img src="./images/glass.png" alt="">
+    <div class="footer-element half">
+      <img src="./images/half-white.svg" alt="">
+    </div>
+    <div class="footer-element bottle">
+      <img src="./images/bottle-white.svg" alt="">
+    </div>
+    <div class="footer-element pint">
+      <img src="./images/pint-white.svg" alt="">
+    </div>
+    <div class="footer-element glass">
+      <img src="./images/glass-white.svg" alt="">
+    </div>
     `;
   this.render();
 };
@@ -18,3 +26,4 @@ Footer.prototype.generate = function() {
 Footer.prototype.render = function() {
   this.parent.innerHTML = this.elements;
 };
+
