@@ -4,9 +4,13 @@ function RecipeList(parent) {
   this.parent = parent;
   this.recipes = null;
   this.elements = null;
+  this.loading = null;
 }
 
 RecipeList.prototype.generate = async function() {
+  this.loading = new Loading(this.parent);
+  this.loading.generate();
+
   await this.connectToApi();
 
   this.elements = `<section class="recipe-list">`;

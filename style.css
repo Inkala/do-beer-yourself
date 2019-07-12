@@ -132,14 +132,25 @@ hr {
 
 /* ---- Landing Page ---- */
 
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+
 .landing-page {
   background-image: url(images/beer-background2.jpg);
   display: grid;
   grid-template-rows: auto auto 1fr;
   background-size: cover;
   height: 100%;
-  background-position: 10%;
   padding: 20% 15% 15%;
+  background-position: 0px 0px;
+  background-repeat: repeat;
+  animation: animatedBackground 30s linear infinite alternate;
 }
 
 .landing-page h2,
@@ -178,6 +189,8 @@ hr {
 
 .recipe-list {
   margin-bottom: 65px;
+  display: grid;
+  width: 100%;
 }
 
 .recipe-list img {
@@ -197,6 +210,13 @@ hr {
   text-align: left;
   background-image: url(images/card-left.jpg);
   padding-right: 30%;
+  opacity: 0.85;
+}
+
+.recipe-card:hover {
+  transform: scale(1.015 ,1.015);
+  opacity: 1;
+  transition: all .15s ease-in;
 }
 
 .recipe-card:nth-child(even) {
@@ -224,7 +244,21 @@ hr {
   padding: 10px;
 }
 
+
+
+@keyframes animatedHeader {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 100%;
+  }
+}
+
 .recipe-header {
+  background-position: 0px 0px;
+  background-repeat: repeat;
+  animation: animatedHeader 20s linear infinite alternate;
   background-size: cover;
   display: grid;
   place-content: center center;
@@ -310,11 +344,18 @@ hr {
 }
 
 .recipe-section h4 {
-  margin: 0 0 20px;
+  margin: 0 0 18px;
   cursor: pointer;
   color: var(--dark-gold);
   font-size: 1.2em;
-  display: flex;
+  display: inline-flex;
+  border-bottom: 2px solid white;
+  padding-bottom: 2px;
+  padding-right: 8px;
+}
+
+.recipe-section h4:hover {
+  border-bottom: 2px solid var(--dark-gold);
 }
 
 .recipe-section h4:before {
@@ -391,29 +432,76 @@ hr {
   transition: all .35s ease-in-out;  
 }
 
-@media (min-width: 768px) {
-  .container {
-    max-width: 728px;
-    margin: 0 auto;
-  }
-}
-
 /* ---- components ---- */
 
 button {
   cursor: pointer;
 }
 
-.blue-border {
-  border: 1px dashed blue;
+.loader,
+.loader:before,
+.loader:after {
+  border-radius: 50%;
 }
-.red-border {
-  border: 1px dashed red;
+.loader {
+  color: var(--dark-gold);
+  font-size: 11px;
+  text-indent: -99999em;
+  margin: 55px auto;
+  position: relative;
+  width: 10em;
+  height: 10em;
+  box-shadow: inset 0 0 0 1em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
 }
-.green-border {
-  border: 1px dashed green;
+.loader:before,
+.loader:after {
+  position: absolute;
+  content: '';
 }
-.purple-border {
-  border: 1px dashed purple;
+.loader:before {
+  width: 5.2em;
+  height: 10.2em;
+  background: #fff;
+  border-radius: 10.2em 0 0 10.2em;
+  top: -0.1em;
+  left: -0.1em;
+  -webkit-transform-origin: 5.2em 5.1em;
+  transform-origin: 5.2em 5.1em;
+  -webkit-animation: load2 2s infinite ease 1.5s;
+  animation: load2 2s infinite ease 1.5s;
 }
-
+.loader:after {
+  width: 5.2em;
+  height: 10.2em;
+  background: #fff;
+  border-radius: 0 10.2em 10.2em 0;
+  top: -0.1em;
+  left: 5.1em;
+  -webkit-transform-origin: 0px 5.1em;
+  transform-origin: 0px 5.1em;
+  -webkit-animation: load2 2s infinite ease;
+  animation: load2 2s infinite ease;
+}
+@-webkit-keyframes load2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

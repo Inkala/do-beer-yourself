@@ -9,9 +9,13 @@ function RecipePage(id, parent) {
   this.ingredients = {};
   this.method = {};
   this.food = null;
+  this.loading = null;
 }
 
 RecipePage.prototype.generate = async function() {
+  this.loading = new Loading(this.parent);
+  this.loading.generate();
+
   await this.connectToApi();
   var recipe = this.recipe[0];
   var bgNum = Math.ceil(Math.random() * 6);
