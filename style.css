@@ -150,7 +150,7 @@ hr {
   padding: 20% 15% 15%;
   background-position: 0px 0px;
   background-repeat: repeat;
-  animation: animatedBackground 30s linear infinite alternate;
+  animation: animatedBackground 15s linear infinite alternate;
 }
 
 .landing-page h2,
@@ -183,6 +183,8 @@ hr {
 
 .landing-page button:hover {
   background-color: var(--dark-gold);
+  transform: scale(1.05 ,1.05);
+  transition: all .15s ease-in;
 }
 
 /* ---- Recipe List ---- */
@@ -191,6 +193,7 @@ hr {
   margin-bottom: 65px;
   display: grid;
   width: 100%;
+  grid-auto-rows: minmax(min-content, max-content);
 }
 
 .recipe-list img {
@@ -203,14 +206,14 @@ hr {
   background-position-y: center;
   color: white;
   padding: 25px;
-  display: grid;
-  box-shadow: 0px 2px 10px black;
+  box-shadow: 0px 2px 10px rgb(19, 14, 14);
   margin: 15px;
   cursor: pointer;
   text-align: left;
   background-image: url(images/card-left.jpg);
   padding-right: 30%;
   opacity: 0.85;
+
 }
 
 .recipe-card:hover {
@@ -262,7 +265,7 @@ hr {
   background-size: cover;
   display: grid;
   place-content: center center;
-  padding: 30px;
+  padding: 5%;
   text-align: center;
 }
 
@@ -312,8 +315,9 @@ hr {
 }
 
 .recipe-content {
-  margin-bottom: 50px;
+  margin: 0 auto 50px;
   padding: 0 10px;
+  max-width: 768px;
 }
 
 .recipe-content h2 {
@@ -430,6 +434,18 @@ hr {
 .collapsed h4:before {
   transform: rotate(-90deg) translate(2px, -3px);
   transition: all .35s ease-in-out;  
+}
+
+@media (min-width: 481px) {
+  .recipe-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .recipe-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 /* ---- components ---- */
