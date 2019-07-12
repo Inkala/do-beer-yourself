@@ -27,4 +27,6 @@ LandingPage.prototype.addListenerToButton = function() {
 
 LandingPage.prototype.render = function() {
   this.parent.innerHTML = this.elements;
+  var header = this.parent.previousElementSibling;
+  header.classList.remove('arrow');
 };

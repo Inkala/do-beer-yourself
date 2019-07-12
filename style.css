@@ -91,6 +91,13 @@ hr {
 .site-navbar li {
   list-style: none;
 }
+.site-navbar li:first-child a {
+  display: none;
+}
+
+.arrow li:first-child a {
+  display: inherit;
+}
 
 .site-navbar img {
   width: 150px;

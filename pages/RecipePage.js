@@ -132,4 +132,6 @@ RecipePage.prototype.connectToApi = async function() {
 
 RecipePage.prototype.render = function() {
   this.parent.innerHTML = this.elements;
+  var header = this.parent.previousElementSibling;
+  header.classList.add('arrow');
 };

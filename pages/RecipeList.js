@@ -24,10 +24,6 @@ RecipeList.prototype.generate = async function() {
   this.addListenersToCards();
 };
 
-RecipeList.prototype.render = function() {
-  this.parent.innerHTML = this.elements;
-};
-
 RecipeList.prototype.connectToApi = async function() {
   this.recipes = await beerServiceInstance.getBeerRecipes();
 };
@@ -42,4 +38,10 @@ RecipeList.prototype.addListenersToCards = function() {
 RecipeList.prototype.openRecipe = function(event) {
   var url = event.target.dataset.url || event.target.parentNode.dataset.url;
   routerInstance.buildDom(url, this.parent);
+};
+
+RecipeList.prototype.render = function() {
+  this.parent.innerHTML = this.elements;
+  var header = this.parent.previousElementSibling;
+  header.classList.remove('arrow');
 };
