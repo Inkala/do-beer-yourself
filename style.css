@@ -432,8 +432,12 @@ hr {
 }
 
 .recipe-section li:before {
-  content: url(images/hop2.png);
+  content: '';
   margin-right: 10px;
+  height: 21px;
+  background: url(images/hop2.png);
+  background-size: cover;
+  width: 15px;
 }
 
 .recipe-section ul {
@@ -459,11 +463,18 @@ hr {
   padding-top: 5px;
 }
 
-.stats img {
+.stats-img {
   border: 3px solid var(--gold);
   height: 215px;
-  padding: 15px;
+  width: 145px;
   margin: 0 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.stats-img img {
+  width: auto;
+  height: 95%;
 }
 
 .ingredients p {
