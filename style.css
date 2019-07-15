@@ -220,11 +220,13 @@ hr {
 
 .landing-page h2:hover {
   text-shadow: 0px 7px 7px black;
+  margin: 12px 0 18px;
   transition: all .15s ease-in;
 }
 
 .landing-page h3:hover {
   text-shadow: 0px 5px 5px black;
+  margin: 14px 0 16px;
   transition: all .15s ease-in;
 }
 

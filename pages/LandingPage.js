@@ -1,32 +1,34 @@
 'use strict';
 
-function LandingPage(parent) {
-  this.parent = parent;
-  this.elements = null;
-}
+class LandingPage {
+  constructor(parent) {
+    this.parent = parent;
+    this.elements = null;
+  }
 
-LandingPage.prototype.generate = function() {
-  this.elements = `
+  generate() {
+    this.elements = `
     <section class=landing-page>
       <h3>More hops, add fruit...</h3>
       <h2>Try it yourself!</h2>
       <button data-url="/recipes">Check the recipes</button>
     </section>
   `;
-  this.render();
-  this.addListenerToButton();
-};
+    this.render();
+    this.addListenerToButton();
+  }
 
-LandingPage.prototype.addListenerToButton = function() {
-  var recipesButton = document.querySelector('.landing-page button');
-  recipesButton.addEventListener('click', event => {
-    var url = event.target.dataset.url;
-    routerInstance.buildDom(url, this.parent);
-  });
-};
+  addListenerToButton() {
+    const recipesButton = document.querySelector('.landing-page button');
+    recipesButton.addEventListener('click', event => {
+      const url = event.target.dataset.url;
+      routerInstance.buildDom(url, this.parent);
+    });
+  }
 
-LandingPage.prototype.render = function() {
-  this.parent.innerHTML = this.elements;
-  var header = this.parent.previousElementSibling;
-  header.classList.remove('arrow');
-};
+  render() {
+    this.parent.innerHTML = this.elements;
+    const header = this.parent.previousElementSibling;
+    header.classList.remove('arrow');
+  }
+}
